@@ -135,7 +135,7 @@ export default function Ex3Md5({ navigation }) {
   return (
     <>
       <HeaderBack
-        text="Exercicio 2"
+        text="Exercicio 3"
         onPress={() => navigation.navigate("Modules5")}
       />
 

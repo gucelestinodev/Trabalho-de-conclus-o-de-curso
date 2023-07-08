@@ -24,6 +24,7 @@ import Modules5 from "../screens/Modules/Modules5";
 import Ex1Md5 from "../screens/Modules/Modules5/Exercises/Ex1Md5";
 import Ex2Md5 from "../screens/Modules/Modules5/Exercises/Ex2Md5";
 import Ex3Md5 from "../screens/Modules/Modules5/Exercises/Ex3Md5";
+import Ex4Md5 from "../screens/Modules/Modules5/Exercises/Ex4Md5";
 
 const Stack = createNativeStackNavigator();
 
@@ -59,6 +60,7 @@ function App() {
         <Stack.Screen name="Ex1Md5" component={Ex1Md5} />
         <Stack.Screen name="Ex2Md5" component={Ex2Md5} />
         <Stack.Screen name="Ex3Md5" component={Ex3Md5} />
+        <Stack.Screen name="Ex4Md5" component={Ex4Md5} />
       </Stack.Navigator>
     </NavigationContainer>
   );

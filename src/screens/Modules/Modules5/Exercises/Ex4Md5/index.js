@@ -14,12 +14,12 @@ import {
 
 import HeaderBack from "../../../../../components/Header";
 
-const Ex2Md5 = ({ navigation }) => {
-  const [selectedButtons, setSelectedButtons] = useState({});
+const Ex4Md5 = ({ navigation }) => {
+  const [selectedButtonsNew, setSelectedButtonsNew] = useState({});
   const buttonNumbers = [85, 87];
-  const buttonNumbers1 = [40, 46];
+  const buttonNumbers1 = [48, 46];
   const buttonNumbers2 = [33, 31];
-  const buttonNumbers3 = [91, 94];
+  const buttonNumbers3 = [96, 94];
 
   useEffect(() => {
     retrieveSelectedButtons();
@@ -27,13 +27,13 @@ const Ex2Md5 = ({ navigation }) => {
 
   useEffect(() => {
     storeSelectedButtons();
-  }, [selectedButtons]);
+  }, [selectedButtonsNew]);
 
   const retrieveSelectedButtons = async () => {
     try {
-      const value = await AsyncStorage.getItem("selectedButtons");
+      const value = await AsyncStorage.getItem("selectedButtonsNew");
       if (value !== null) {
-        setSelectedButtons(JSON.parse(value));
+        setSelectedButtonsNew(JSON.parse(value));
       }
     } catch (error) {
       console.error(
@@ -45,28 +45,28 @@ const Ex2Md5 = ({ navigation }) => {
 
   const storeSelectedButtons = async () => {
     try {
-      const value = JSON.stringify(selectedButtons);
-      await AsyncStorage.setItem("selectedButtons", value);
+      const value = JSON.stringify(selectedButtonsNew);
+      await AsyncStorage.setItem("selectedButtonsNew", value);
     } catch (error) {
       console.error("Error storing selected buttons in AsyncStorage:", error);
     }
   };
 
   const handleButtonClick = (container, number) => {
-    setSelectedButtons((prevState) => ({
+    setSelectedButtonsNew((prevState) => ({
       ...prevState,
       [container]: number,
     }));
   };
 
-  const isButtonSelected = (container, number) =>
-    selectedButtons[container] === number;
+  const isButtonSelectedNew = (container, number) =>
+    selectedButtonsNew[container] === number;
 
-  const isContainerComplete = (container) => !!selectedButtons[container];
+  const isContainerComplete = (container) => !!selectedButtonsNew[container];
 
   const handleGoBack = async () => {
     try {
-      await AsyncStorage.setItem("paramsEx2Md5", "true");
+      await AsyncStorage.setItem("paramsEx4Md5", "true");
       navigation.navigate("Modules5");
     } catch (error) {
       console.log("Erro ao armazenar os parâmetros no AsyncStorage:", error);
@@ -80,7 +80,7 @@ const Ex2Md5 = ({ navigation }) => {
         onPress={() => navigation.navigate("Modules5")}
       />
       <Container>
-        <TitleOption>Clique no número antecessor</TitleOption>
+        <TitleOption>Clique no número sucessor:</TitleOption>
         <View
           style={{
             flexDirection: "row",
@@ -97,7 +97,7 @@ const Ex2Md5 = ({ navigation }) => {
                   key={number}
                   style={[
                     styles.button,
-                    isButtonSelected("container1", number) &&
+                    isButtonSelectedNew("container1", number) &&
                       styles.selectedButton,
                   ]}
                   onPress={() => handleButtonClick("container1", number)}
@@ -105,7 +105,7 @@ const Ex2Md5 = ({ navigation }) => {
                   <Text
                     style={[
                       styles.buttonText,
-                      isButtonSelected("container1", number) &&
+                      isButtonSelectedNew("container1", number) &&
                         styles.selectedButtonText,
                     ]}
                   >
@@ -124,7 +124,7 @@ const Ex2Md5 = ({ navigation }) => {
                   key={number}
                   style={[
                     styles.button,
-                    isButtonSelected("container2", number) &&
+                    isButtonSelectedNew("container2", number) &&
                       styles.selectedButton,
                   ]}
                   onPress={() => handleButtonClick("container2", number)}
@@ -132,7 +132,7 @@ const Ex2Md5 = ({ navigation }) => {
                   <Text
                     style={[
                       styles.buttonText,
-                      isButtonSelected("container2", number) &&
+                      isButtonSelectedNew("container2", number) &&
                         styles.selectedButtonText,
                     ]}
                   >
@@ -158,7 +158,7 @@ const Ex2Md5 = ({ navigation }) => {
                   key={number}
                   style={[
                     styles.button,
-                    isButtonSelected("container3", number) &&
+                    isButtonSelectedNew("container3", number) &&
                       styles.selectedButton,
                   ]}
                   onPress={() => handleButtonClick("container3", number)}
@@ -166,7 +166,7 @@ const Ex2Md5 = ({ navigation }) => {
                   <Text
                     style={[
                       styles.buttonText,
-                      isButtonSelected("container3", number) &&
+                      isButtonSelectedNew("container3", number) &&
                         styles.selectedButtonText,
                     ]}
                   >
@@ -185,7 +185,7 @@ const Ex2Md5 = ({ navigation }) => {
                   key={number}
                   style={[
                     styles.button,
-                    isButtonSelected("container4", number) &&
+                    isButtonSelectedNew("container4", number) &&
                       styles.selectedButton,
                   ]}
                   onPress={() => handleButtonClick("container4", number)}
@@ -193,7 +193,7 @@ const Ex2Md5 = ({ navigation }) => {
                   <Text
                     style={[
                       styles.buttonText,
-                      isButtonSelected("container4", number) &&
+                      isButtonSelectedNew("container4", number) &&
                         styles.selectedButtonText,
                     ]}
                   >
@@ -205,7 +205,7 @@ const Ex2Md5 = ({ navigation }) => {
           </ContainerFull>
         </View>
       </Container>
-      {Object.keys(selectedButtons).length === 4 ? (
+      {Object.keys(selectedButtonsNew).length === 4 ? (
         <View style={{ alignItems: "center", backgroundColor: "#FFFFFF" }}>
           <ButtonEnviar onPress={() => handleGoBack()}>
             <TextButton>Enviar</TextButton>
@@ -246,4 +246,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Ex2Md5;
+export default Ex4Md5;
