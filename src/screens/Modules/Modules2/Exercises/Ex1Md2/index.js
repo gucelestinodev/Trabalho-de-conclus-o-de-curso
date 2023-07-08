@@ -18,6 +18,7 @@ import {
   ContainerItensPalavras,
   TextPalavra,
   PalavrasJuntas,
+  Title,
 } from "./styles";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import HeaderBack from "../../../../../components/Header";
@@ -40,22 +41,36 @@ const Ex1Md2 = ({ navigation }) => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
   const handleLetterClick = (letter) => {
-    setWord([...word, letter]);
+    setWord((prevWord) => [...prevWord, letter]);
   };
 
   const handleReset = () => {
+    setWord((prevWord) => {
+      const newWord = [...prevWord];
+      newWord.pop();
+      return newWord;
+    });
+  };
+
+  const handleClear = () => {
     setWord([]);
   };
 
-  const handleSave = async () => {
+  const handleSave = () => {
     const newWord = { word: word.join(""), index: currentWordIndex };
-    setSavedWord([...savedWord, newWord]);
-    await AsyncStorage.setItem(
-      "@saved_word",
-      JSON.stringify([...savedWord, newWord])
-    );
-    handleReset();
-    setCurrentWordIndex((currentWordIndex + 1) % wordList.length);
+    setSavedWord((prevSavedWord) => {
+      const newSavedWords = [...prevSavedWord, newWord];
+      AsyncStorage.setItem("@saved_word", JSON.stringify(newSavedWords))
+        .then(() => {
+          console.log("Palavra salva com sucesso!");
+          handleClear();
+          setCurrentWordIndex((currentWordIndex + 1) % wordList.length);
+        })
+        .catch((error) => {
+          console.log("Erro ao salvar a palavra:", error);
+        });
+      return newSavedWords;
+    });
   };
 
   const handleDelete = async () => {
@@ -94,7 +109,8 @@ const Ex1Md2 = ({ navigation }) => {
     }
   };
 
-  console.log(savedWord?.length)
+  const lastIndex =
+    savedWord.length > 0 ? savedWord[savedWord.length - 1].index : -1;
 
   return (
     <>
@@ -103,8 +119,8 @@ const Ex1Md2 = ({ navigation }) => {
           text="Exercicio 1"
           onPress={() => navigation.navigate("Modules2")}
         />
-
         <ContainerWords>
+          <Title>Forme as palavras abaixo:</Title>
           <TextWords>{wordList[currentWordIndex]}</TextWords>
         </ContainerWords>
         <ContainerItens>
@@ -156,9 +172,9 @@ const Ex1Md2 = ({ navigation }) => {
             <TextButtonAux>Excluir</TextButtonAux>
           </ButtonExcluir>
         </ContainerButtons>
-          {savedWord.map((item, index) => (
-            <TextPalavra key={index}>{item?.word}</TextPalavra>
-          ))}
+        {savedWord.map((item, index) => (
+          <TextPalavra key={index}>{item?.word}</TextPalavra>
+        ))}
         <View
           style={{
             position: "absolute",
@@ -171,17 +187,17 @@ const Ex1Md2 = ({ navigation }) => {
           </ButtonApagar>
         </View>
       </Container>
-      {savedWord.length < 6 ? (
-        <View style={{ alignItems: "center", backgroundColor: "#FFFFFF" }}>
-          <ButtonEnviarCinza>
-            <TextButton>Enviar</TextButton>
-          </ButtonEnviarCinza>
-        </View>
-      ) : (
+      {lastIndex === 5 ? (
         <View style={{ alignItems: "center", backgroundColor: "#FFFFFF" }}>
           <ButtonEnviar onPress={() => handleGoBack()}>
             <TextButton>Enviar</TextButton>
           </ButtonEnviar>
+        </View>
+      ) : (
+        <View style={{ alignItems: "center", backgroundColor: "#FFFFFF" }}>
+          <ButtonEnviarCinza>
+            <TextButton>Enviar</TextButton>
+          </ButtonEnviarCinza>
         </View>
       )}
     </>

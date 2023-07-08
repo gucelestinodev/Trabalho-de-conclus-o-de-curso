@@ -96,14 +96,14 @@ const Ex3Md3 = ({ navigation }) => {
     .map((letter) => data[letter.row][letter.col])
     .join("");
 
-    const handleGoBack = async () => {
-      try {
-        await AsyncStorage.setItem("paramsEx2Md3", "true");
-        navigation.navigate("Modules3");
-      } catch (error) {
-        console.log("Erro ao armazenar os parâmetros no AsyncStorage:", error);
-      }
-    };
+  const handleGoBack = async () => {
+    try {
+      await AsyncStorage.setItem("paramsEx2Md3", "true");
+      navigation.navigate("Modules3");
+    } catch (error) {
+      console.log("Erro ao armazenar os parâmetros no AsyncStorage:", error);
+    }
+  };
 
   return (
     <>
@@ -114,7 +114,7 @@ const Ex3Md3 = ({ navigation }) => {
 
       <Container>
         <ContainerWords>
-          <TextWords>Escreva 4 palavras com as letras a baixo:</TextWords>
+          <TextWords>Forme 4 palavras juntando as sílabas abaixo:</TextWords>
         </ContainerWords>
         <ContainerItens>
           <Grid data={data} onLetterPress={handleLetterPress} />

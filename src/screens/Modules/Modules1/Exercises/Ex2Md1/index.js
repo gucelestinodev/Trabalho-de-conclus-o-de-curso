@@ -116,7 +116,7 @@ const Ex2Md1 = ({ navigation }) => {
           onPress={() => navigation.navigate("Modules1")}
         />
         <ContainerWords>
-          <TextWords>Escreva 4 palavras com as letras a baixo:</TextWords>
+          <TextWords>Forme 4 palavras juntando as sílabas abaixo:</TextWords>
         </ContainerWords>
         <ContainerItens>
           <Grid data={data} onLetterPress={handleLetterPress} />

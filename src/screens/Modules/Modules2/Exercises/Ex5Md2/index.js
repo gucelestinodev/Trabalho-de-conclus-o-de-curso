@@ -17,6 +17,7 @@ import {
   ButtonEnviarCinza,
   ContainerItensPalavras,
   ContainerButtons1,
+  Title,
 } from "./styles";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import HeaderBack from "../../../../../components/Header";
@@ -110,8 +111,8 @@ const Ex5Md2 = ({ navigation }) => {
           text="Exercicio 4"
           onPress={() => navigation.navigate("Modules2")}
         />
-
         <ContainerWords>
+          <Title>Forme os nomes abaixo:</Title>
           <TextWords>{wordList[currentWordIndex]}</TextWords>
         </ContainerWords>
         <ContainerItens>
@@ -163,14 +164,14 @@ const Ex5Md2 = ({ navigation }) => {
             <TextButtonAux>Excluir</TextButtonAux>
           </ButtonExcluir>
         </ContainerButtons>
-          {savedWord.map((item, index) => (
-            <Text
-              key={index}
-              style={{ fontSize: 22, marginLeft: 10, marginBottom: 10 }}
-            >
-              {item?.word}
-            </Text>
-          ))}
+        {savedWord.map((item, index) => (
+          <Text
+            key={index}
+            style={{ fontSize: 22, marginLeft: 10, marginBottom: 10 }}
+          >
+            {item?.word}
+          </Text>
+        ))}
       </Container>
       <ContainerButtons1>
         <ButtonApagar onPress={handleDelete}>

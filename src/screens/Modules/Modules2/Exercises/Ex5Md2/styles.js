@@ -19,10 +19,16 @@ export const ContainerItensPalavras = styled.View`
 `;
 
 export const ContainerWords = styled.View`
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
   margin: 10px 0px 10px 0px;
+`;
+
+export const Title = styled.Text`
+  font-size: 25px;
+  color: #000000;
+  margin-bottom: 10px;
 `;
 
 export const TextWords = styled.Text`

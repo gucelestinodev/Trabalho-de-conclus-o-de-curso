@@ -94,7 +94,7 @@ const Ex1Md3 = ({ navigation }) => {
       />
       <Container>
         <ContainerWords>
-          <TextWords>Escolha os meses sequencialmente:</TextWords>
+          <TextWords>Coloque os meses na ordem:</TextWords>
         </ContainerWords>
         <ContainerItens>
           <Grid data={data} onLetterPress={handleLetterPress} />

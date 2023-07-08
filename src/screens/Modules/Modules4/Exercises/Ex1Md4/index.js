@@ -16,7 +16,7 @@ import {
   ContainerButtons,
   ButtonEnviarCinza,
   ButtonApagar,
-  WordsItens1
+  WordsItens1,
 } from "./styles";
 import Grid from "../../../../../components/Jogos/HuntingWords/Grid";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -101,14 +101,14 @@ const Ex1Md4 = ({ navigation }) => {
     .map((letter) => data[letter.row][letter.col])
     .join("");
 
-    const handleGoBack = async () => {
-      try {
-        await AsyncStorage.setItem("paramsEx1Md4", "true");
-        navigation.navigate("Modules4");
-      } catch (error) {
-        console.log("Erro ao armazenar os parâmetros no AsyncStorage:", error);
-      }
-    };
+  const handleGoBack = async () => {
+    try {
+      await AsyncStorage.setItem("paramsEx1Md4", "true");
+      navigation.navigate("Modules4");
+    } catch (error) {
+      console.log("Erro ao armazenar os parâmetros no AsyncStorage:", error);
+    }
+  };
 
   return (
     <>
@@ -119,7 +119,7 @@ const Ex1Md4 = ({ navigation }) => {
 
       <Container>
         <ContainerWords>
-          <TextWords>Escreva 4 palavras com as letras a baixo:</TextWords>
+          <TextWords>Forme 4 palavras juntando as sílabas abaixo:</TextWords>
         </ContainerWords>
         <ContainerItens>
           <Grid data={data} onLetterPress={handleLetterPress} />
@@ -134,7 +134,7 @@ const Ex1Md4 = ({ navigation }) => {
         </ContainerButtons>
         <TextWords>{selectedWord}</TextWords>
         <Border />
-        <View style={{ flexDirection: 'row' }}>
+        <View style={{ flexDirection: "row" }}>
           <WordsItens>
             <TextItens>{words[0]}</TextItens>
             <TextItens>{words[1]}</TextItens>

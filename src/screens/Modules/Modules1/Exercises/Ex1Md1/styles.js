@@ -39,6 +39,14 @@ export const TextItens = styled.Text`
   font-weight: bold;
 `;
 
+export const Title = styled.Text`
+  font-size: 22px;
+  color: #282828;
+  font-family: 'Roboto-Regular';
+  margin: 10px 100px 2px 0px;
+  font-weight: bold;
+`;
+
 export const ButtonEnviar = styled.TouchableOpacity`
   background-color: #5DB075;
   width: 230px;

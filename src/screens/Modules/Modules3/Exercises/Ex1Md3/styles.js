@@ -24,7 +24,7 @@ export const ContainerWords = styled.View`
 `;
 
 export const TextWords = styled.Text`
-  font-size: 20px;
+  font-size: 22px;
   color: #000000;
   margin-left: 10px;
   border-bottom: 1px #000000;

@@ -12,6 +12,12 @@ export const ContainerItens = styled.View`
   justify-content: center;
 `;
 
+export const Title = styled.Text`
+  font-size: 22px;
+  color: #000000;
+  margin-bottom: 10px;
+`;
+
 export const ContainerItensPalavras = styled.View`
   flex-direction: row;
   margin: 20px 0 0px 10px;
@@ -19,16 +25,16 @@ export const ContainerItensPalavras = styled.View`
 `;
 
 export const ContainerWords = styled.View`
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
   margin: 10px 0px 10px 0px;
 `;
 
 export const TextWords = styled.Text`
-  font-size: 22px;
+  font-size: 25px;
   color: #000000;
-  font-weight: 500;
+  font-weight: bold;
   margin-left: 10px;
 `;
 
