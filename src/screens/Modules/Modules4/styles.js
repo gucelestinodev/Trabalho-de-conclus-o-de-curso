@@ -47,3 +47,4 @@ export const Border = styled.View`
 export const Separador = styled.View`
   margin-left: 95px;
 `;
+
