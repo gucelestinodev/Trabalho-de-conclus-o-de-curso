@@ -7,7 +7,7 @@ import HeaderBack from "../../../../../components/Header";
 
 const window = Dimensions.get("window");
 
-const Ex6Md2 = () => {
+const Ex6Md2 = ({navigation}) => {
   const [lines, setLines] = useState([]);
   const [currentLine, setCurrentLine] = useState(null);
 

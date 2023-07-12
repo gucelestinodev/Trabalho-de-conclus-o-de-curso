@@ -22,6 +22,7 @@ import Grid from "../../../../../components/Jogos/HuntingWords/Grid";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import HeaderBack from "../../../../../components/Header";
+import Modal from "../../../../../components/Modal/ModalError";
 
 const data = [["A", "E", "I", "O", "U"]];
 
@@ -32,6 +33,8 @@ const Ex1Md1 = ({ navigation }) => {
   const [palavras, setPalavras] = useState([]);
 
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const wordList = ["AMANDA", "ELZA", "IVONE", "ODILON", "UBALDO"];
 
@@ -75,14 +78,19 @@ const Ex1Md1 = ({ navigation }) => {
     const selectedWord = selectedLetters
       .map((letter) => data[letter.row][letter.col])
       .join("");
-    if (selectedWord !== "") {
+    const currentWord = wordList[currentWordIndex];
+
+    if (getVowels(currentWord) === selectedWord) {
       const newWords = [...words, selectedWord];
       setWords(newWords);
       setSelectedLetters([]);
-      saveWords("palavrasEx1Md1", newWords); // Salva as palavras atualizadas no AsyncStorage
+      saveWords("palavrasEx1Md1", newWords);
 
-      // Mover para a próxima palavra
       setCurrentWordIndex(currentWordIndex + 1);
+    } else {
+      // Aqui é onde você pode adicionar feedback visual para o usuário
+      setIsModalVisible(true);
+      console.log("aqui");
     }
   };
 
@@ -111,8 +119,18 @@ const Ex1Md1 = ({ navigation }) => {
     }
   };
 
+  function getVowels(word) {
+    return Array.from(word)
+      .filter((letter) => "AEIOU".includes(letter))
+      .join("");
+  }
+
   return (
     <>
+      <Modal
+        isVisible={isModalVisible}
+        onClose={() => setIsModalVisible(false)}
+      />
       <Container>
         <HeaderBack
           text="Exercicio 1"
