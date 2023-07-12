@@ -38,9 +38,12 @@ const Ex1Md1 = ({ navigation }) => {
 
   const wordList = ["AMANDA", "ELZA", "IVONE", "ODILON", "UBALDO"];
 
-  const saveWords = async (key, words) => {
+  const saveWords = async (key, selectedLetters) => {
     try {
-      const serializedWords = JSON.stringify(words);
+      const selectedWord = selectedLetters
+        .map((letter) => data[letter.row][letter.col])
+        .join("");
+      const serializedWords = JSON.stringify([...words, selectedWord]);
       await AsyncStorage.setItem(key, serializedWords);
       console.log("Palavras salvas com sucesso!");
     } catch (error) {
@@ -74,21 +77,17 @@ const Ex1Md1 = ({ navigation }) => {
     setUndo(true);
   };
 
-  const handleSave = async () => {
+  const handleSave = () => {
     const selectedWord = selectedLetters
       .map((letter) => data[letter.row][letter.col])
       .join("");
     const currentWord = wordList[currentWordIndex];
 
     if (getVowels(currentWord) === selectedWord) {
-      const newWords = [...words, selectedWord];
-      setWords(newWords);
+      setWords([...words, selectedWord]);
       setSelectedLetters([]);
-      saveWords("palavrasEx1Md1", newWords);
-
       setCurrentWordIndex(currentWordIndex + 1);
     } else {
-      // Aqui é onde você pode adicionar feedback visual para o usuário
       setIsModalVisible(true);
       console.log("aqui");
     }
@@ -112,6 +111,7 @@ const Ex1Md1 = ({ navigation }) => {
 
   const handleGoBack = async () => {
     try {
+      await saveWords("palavrasEx1Md1", selectedLetters);
       await AsyncStorage.setItem("params", "true");
       navigation.navigate("Modules1");
     } catch (error) {
