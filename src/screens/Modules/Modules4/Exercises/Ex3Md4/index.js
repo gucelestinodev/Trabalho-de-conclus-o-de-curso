@@ -16,8 +16,8 @@ import {
   ContainerButtons,
   ButtonEnviarCinza,
   ButtonApagar,
+  Negrito,
   WordsItens1,
-  Negrito
 } from "./styles";
 import Grid from "../../../../../components/Jogos/HuntingWords/Grid";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -30,7 +30,7 @@ const data = [
   ["DA", "DE", "DI", "DO", "DU"],
 ];
 
-const Ex1Md4 = ({ navigation }) => {
+const Ex3Md4 = ({ navigation }) => {
   const [selectedLetters, setSelectedLetters] = useState([]);
   const [undo, setUndo] = useState(false);
   const [words, setWords] = useState([]);
@@ -42,7 +42,7 @@ const Ex1Md4 = ({ navigation }) => {
   const saveWords = async (words) => {
     try {
       const serializedWords = JSON.stringify(words);
-      await AsyncStorage.setItem("Ex1Md4_palavras", serializedWords);
+      await AsyncStorage.setItem("Ex3Md4_palavras", serializedWords);
       console.log("Palavras salvas com sucesso!");
     } catch (error) {
       console.log("Erro ao salvar as palavras:", error);
@@ -52,7 +52,7 @@ const Ex1Md4 = ({ navigation }) => {
   useEffect(() => {
     const loadWords = async () => {
       try {
-        const serializedWords = await AsyncStorage.getItem("Ex1Md4_palavras");
+        const serializedWords = await AsyncStorage.getItem("Ex3Md4_palavras");
         if (serializedWords !== null) {
           const loadedWords = JSON.parse(serializedWords);
           setWords(loadedWords);
@@ -91,7 +91,7 @@ const Ex1Md4 = ({ navigation }) => {
     setWords(newWords);
     try {
       const serializedWords = JSON.stringify(newWords);
-      await AsyncStorage.setItem("Ex1Md4_palavras", serializedWords);
+      await AsyncStorage.setItem("Ex3Md4_palavras", serializedWords);
       console.log("Palavra apagada com sucesso!");
     } catch (error) {
       console.log("Erro ao apagar a palavra:", error);
@@ -104,7 +104,7 @@ const Ex1Md4 = ({ navigation }) => {
 
   const handleGoBack = async () => {
     try {
-      await AsyncStorage.setItem("paramsEx1Md4", "true");
+      await AsyncStorage.setItem("paramsEx3Md4", "true");
       navigation.navigate("Modules4");
     } catch (error) {
       console.log("Erro ao armazenar os parâmetros no AsyncStorage:", error);
@@ -121,7 +121,8 @@ const Ex1Md4 = ({ navigation }) => {
       <Container>
         <ContainerWords>
           <TextWords>
-            Forme 4 palavras iniciadas com <Negrito>T</Negrito> usando as sílabas abaixo:
+            Forme 4 palavras iniciadas com <Negrito>D</Negrito> usando as
+            sílabas abaixo:
           </TextWords>
         </ContainerWords>
         <ContainerItens>
@@ -176,4 +177,4 @@ const Ex1Md4 = ({ navigation }) => {
   );
 };
 
-export default Ex1Md4;
+export default Ex3Md4;

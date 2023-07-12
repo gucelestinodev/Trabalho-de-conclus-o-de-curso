@@ -20,8 +20,13 @@ export const ContainerWords = styled.View`
 export const TextWords = styled.Text`
   font-size: 22px;
   color: #000000;
-  text-align: center;
   padding-horizontal: 50px;
+  text-align: center;
+`;
+export const Negrito = styled.Text`
+  font-weight: bold;
+  font-size: 28px;
+  color: #000000;
 `;
 
 export const WordsItens = styled.View`
@@ -33,12 +38,6 @@ export const WordsItens1 = styled.View`
   flex-direction: column;
   align-items: flex-start;
   margin-left: 50px;
-`;
-
-export const Negrito = styled.Text`
-  font-weight: bold;
-  font-size: 28px;
-  color: #000000;
 `;
 
 export const TextItens = styled.Text`

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Dimensions, PanResponder, StyleSheet, View } from "react-native";
 import Svg, { Circle, Line, Text } from "react-native-svg";
 import { Container, ContainerButton, TextButton } from "./styles";
+import HeaderBack from "../../../../../components/Header";
 
 const window = Dimensions.get("window");
 
@@ -11,27 +12,32 @@ const Ex6Md2 = () => {
   const [currentLine, setCurrentLine] = useState(null);
 
   const dots = shuffle([
-    { x: 50, y: window.height / 5, color: "blue", letter: "A" },
-    { x: 50, y: (window.height / 5) * 2, color: "black", letter: "B" },
-    { x: 50, y: (window.height / 5) * 3, color: "red", letter: "C" },
-    { x: 50, y: (window.height / 5) * 4, color: "orange", letter: "D" },
-    { x: window.width - 50, y: window.height / 5, color: "blue", letter: "a" },
+    { x: 50, y: window.height / 5, color: "#000000", letter: "A" },
+    { x: 50, y: (window.height / 5) * 2, color: "#000000", letter: "B" },
+    { x: 50, y: (window.height / 5) * 3, color: "#000000", letter: "C" },
+    { x: 50, y: (window.height / 5) * 4, color: "#000000", letter: "D" },
+    {
+      x: window.width - 50,
+      y: (window.height / 5) * 3,
+      color: "#000000",
+      letter: "a",
+    },
     {
       x: window.width - 50,
       y: (window.height / 5) * 2,
-      color: "black",
+      color: "#000000",
       letter: "b",
     },
     {
       x: window.width - 50,
-      y: (window.height / 5) * 3,
-      color: "red",
+     y: window.height / 5,
+      color: "#000000",
       letter: "c",
     },
     {
       x: window.width - 50,
       y: (window.height / 5) * 4,
-      color: "orange",
+      color: "#000000",
       letter: "d",
     },
   ]);
@@ -87,6 +93,10 @@ const Ex6Md2 = () => {
 
   return (
     <>
+      <HeaderBack
+        text="Exercicio 5"
+        onPress={() => navigation.navigate("Modules2")}
+      />
       <View {...panResponder.panHandlers} style={styles.container}>
         <Svg
           height="100%"
@@ -96,7 +106,13 @@ const Ex6Md2 = () => {
           {dots.map((dot, index) => (
             <Svg key={index}>
               <Circle cx={dot.x} cy={dot.y} r="20" fill={dot.color} />
-              <Text x={dot.x - 5} y={dot.y + 5} fill="white">
+              <Text
+                style={{ fontSize: 40, textAlign: "center" }}
+                x={dot.x}
+                y={dot.y + 15}
+                fill="white"
+                textAnchor="middle"
+              >
                 {dot.letter}
               </Text>
             </Svg>
@@ -109,7 +125,7 @@ const Ex6Md2 = () => {
               x2={line.end.x}
               y2={line.end.y}
               stroke={line.start.color}
-              strokeWidth="2"
+              strokeWidth="5"
             />
           ))}
           {currentLine && (
@@ -139,6 +155,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     marginBottom: 40,
     alignItems: "center",
+    justifyContent: "center",
   },
 });
 

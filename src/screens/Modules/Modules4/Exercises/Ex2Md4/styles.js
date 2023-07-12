@@ -20,8 +20,13 @@ export const ContainerWords = styled.View`
 export const TextWords = styled.Text`
   font-size: 22px;
   color: #000000;
-  text-align: center;
   padding-horizontal: 50px;
+  text-align: center;
+`;
+export const Negrito = styled.Text`
+  font-weight: bold;
+  font-size: 28px;
+  color: #000000;
 `;
 
 export const WordsItens = styled.View`
@@ -35,22 +40,17 @@ export const WordsItens1 = styled.View`
   margin-left: 50px;
 `;
 
-export const Negrito = styled.Text`
-  font-weight: bold;
-  font-size: 28px;
-  color: #000000;
-`;
 
 export const TextItens = styled.Text`
   font-size: 22px;
   color: #282828;
-  font-family: "Roboto-Regular";
+  font-family: 'Roboto-Regular';
   font-weight: bold;
   margin: 20px 0 -10px 10px;
 `;
 
 export const ButtonEnviar = styled.TouchableOpacity`
-  background-color: #5db075;
+  background-color: #5DB075;
   width: 230px;
   height: 55px;
   border-radius: 10px;
@@ -60,7 +60,7 @@ export const ButtonEnviar = styled.TouchableOpacity`
 `;
 
 export const ButtonEnviarCinza = styled.TouchableOpacity`
-  background-color: #d9d9d9;
+  background-color: #D9D9D9;
   width: 230px;
   height: 55px;
   border-radius: 10px;
@@ -86,7 +86,7 @@ export const ButtonExcluir = styled.TouchableOpacity`
 `;
 
 export const ButtonSalvar = styled.TouchableOpacity`
-  background-color: #5db075;
+  background-color: #5DB075;
   width: 100px;
   height: 40px;
   border-radius: 10px;

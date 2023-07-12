@@ -18,7 +18,7 @@ export const ContainerButton = styled.TouchableOpacity`
   background-color: #000000;
   width: 130px;
   height: 45px;
-  border-radius: 30px;
+  border-radius: 10px;
   align-items: center;
   justify-content: center;
 `;
@@ -27,6 +27,15 @@ export const Title = styled.Text`
   font-size: 25px;
   color: #282828;
   font-family: 'Roboto-Regular';
+  font-weight: bold;
+  margin-bottom: 5px;
+`;
+
+export const SubTitle = styled.Text`
+  font-size: 22px;
+  color: #282828;
+  font-family: 'Roboto-Regular';
+  padding-bottom: 20px;
 `;
 
 export const TextButton = styled.Text`

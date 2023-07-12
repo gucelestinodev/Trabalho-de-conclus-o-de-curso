@@ -36,6 +36,9 @@ export const TextWords = styled.Text`
   color: #000000;
   font-weight: 500;
   margin-left: 10px;
+  border: solid 1px #000000;
+  border-radius: 10px;
+  padding: 10px;
 `;
 
 export const WordsItens = styled.View`
