@@ -32,7 +32,7 @@ export const Text = styled.Text`
   color: #282828;
   text-align: center;
   margin-bottom: 30px;
-  font-family: 'Roboto';
+  font-family: 'Roboto-Bold';
 `;
 
 export const Title = styled.Text`
