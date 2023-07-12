@@ -6,7 +6,7 @@ import {
   TextButton,
   ContainerIteins,
   Separador,
-  SubTitle
+  SubTitle,
 } from "./styles";
 import ImageHome from "../../assets/imageHome.js";
 
@@ -14,10 +14,8 @@ export default function Home({ navigation }) {
   return (
     <Container>
       <ContainerIteins>
-        <Title>ArfabetizAI</Title>
-        <SubTitle>Alfabetização de Adultos e Idosos</SubTitle>
+        <Title>AlfabetizAI</Title>
         <ImageHome />
-        <Separador />
         <ContainerButton onPress={() => navigation.navigate("Activites")}>
           <TextButton>Iniciar</TextButton>
         </ContainerButton>

@@ -145,7 +145,7 @@ const Ex2Md1 = ({ navigation }) => {
           style={{
             position: "absolute",
             left: 260,
-            top: 620,
+            top: 640,
           }}
         >
           <ButtonApagar onPress={handleDelete}>

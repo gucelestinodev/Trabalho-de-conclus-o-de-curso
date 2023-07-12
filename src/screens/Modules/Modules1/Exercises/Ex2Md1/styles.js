@@ -18,9 +18,11 @@ export const ContainerWords = styled.View`
 `;
 
 export const TextWords = styled.Text`
-  font-size: 20px;
+  font-size: 22px;
   color: #000000;
   margin-left: 10px;
+  text-align: center;
+  padding-horizontal: 50px;
 `;
 
 export const WordsItens = styled.View`

@@ -141,5 +141,6 @@ export const TextPalavra = styled.Text`
   font-size: 26px;
   color: #000000;
   font-weight: bold;
+  margin-left: 10px;
 `;
 
