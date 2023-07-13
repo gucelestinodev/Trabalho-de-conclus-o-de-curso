@@ -47,7 +47,7 @@ export default function Modules5({ navigation }) {
   return (
     <Container>
       <HeaderBack
-        text="Modulo 5"
+        text="Módulo 5"
         onPress={() => navigation.navigate("Activites")}
       />
       <ContainerIteins>

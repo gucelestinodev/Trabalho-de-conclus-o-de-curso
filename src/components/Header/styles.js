@@ -31,7 +31,7 @@ export const ColumnLeft = styled.TouchableOpacity`
 
 export const BackText = styled.Text`
   margin-left: 24px;
-  font-family: "AleloTexto-Medium";
+  font-family: "Roboto-Medium";
   font-size: 17px;
   color: #000;
 `;
@@ -44,14 +44,15 @@ export const ColumnRight = styled.TouchableOpacity`
 `;
 
 export const ButtonBack = styled.TouchableOpacity`
-  align-items: flex-start;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
   background-color: "#000000";
-  margin-left: 5px;
+  margin: 10px 0px 10px 5px;
+  width: 100%;
 `;
 
 export const TitleModal = styled.Text`
-  font-family: "AleloTexto-Bold";
+  font-family: "Roboto-Bold";
   font-size: 22px;
   font-weight: bold;
   color: #000;
@@ -59,22 +60,37 @@ export const TitleModal = styled.Text`
 `;
 
 export const TextBackModal = styled.Text`
-  font-family: "AleloTexto-Medium";
-  font-size: 18px;
+  font-family: "Roboto-Medium";
+  font-size: 22px;
   color: #000;
+  margin-right: 50px;
 `;
 
 export const TextResetModal = styled.Text`
-  font-family: "AleloTexto-Medium";
+  font-family: "Roboto-Medium";
   font-size: 22px;
   color: #000;
 `;
 
+export const SubTitleNames = styled.Text`
+  font-family: "Roboto-Medium";
+  font-size: 20px;
+  color: #000;
+  margin-bottom: 20px;
+`;
+
+export const TextNames = styled.Text`
+  font-family: "Roboto-Regular";
+  font-size: 18px;
+  color: #000;
+  margin-bottom: 10px;
+`;
+
 export const ButtonReset = styled.TouchableOpacity`
-  align-items: flex-start;
-  justify-content: flex-end;
+  flex-direction: row;
+  align-items: center;
   background-color: "#000000";
-  margin: 300px 0px 0px 5px;
+  margin-left: 5px;
 `;
 
 export const ButtonMod = styled.TouchableOpacity`

@@ -35,6 +35,8 @@ const Ex1Md3 = ({ navigation }) => {
   const [undo, setUndo] = useState(false);
   const [selectedNames, setSelectedNames] = useState([]);
 
+  const [selectedMonths, setSelectedMonths] = useState([]);
+
   useEffect(() => {
     const loadData = async () => {
       try {
@@ -52,9 +54,13 @@ const Ex1Md3 = ({ navigation }) => {
 
   const handleLetterPress = (row, col) => {
     const name = data[row][col];
-    setSelectedLetters([...selectedLetters, { row, col }]);
-    setSelectedNames([...selectedNames, name]);
-    setUndo(false);
+    if (!selectedMonths.includes(name)) {
+      // Verifica se o mês já foi selecionado
+      setSelectedLetters([...selectedLetters, { row, col }]);
+      setSelectedNames([...selectedNames, name]);
+      setSelectedMonths([...selectedMonths, name]); // Adiciona o mês à lista de meses selecionados
+      setUndo(false);
+    }
   };
 
   const handleUndo = () => {
@@ -70,6 +76,12 @@ const Ex1Md3 = ({ navigation }) => {
         (selectedName, index) => index !== lastSelectionIndex
       );
       setSelectedNames(newSelectedNames);
+
+      // Remove o último mês selecionado da lista de meses selecionados
+      const newSelectedMonths = selectedMonths.filter(
+        (selectedMonth, index) => index !== lastSelectionIndex
+      );
+      setSelectedMonths(newSelectedMonths);
     }
   };
 
@@ -86,6 +98,25 @@ const Ex1Md3 = ({ navigation }) => {
     }
   };
 
+  const handleNameClick = (index) => {
+  // Remova o item selecionado das listas selectedLetters, selectedNames e selectedMonths
+  const newSelectedLetters = selectedLetters.filter(
+    (selectedLetter, i) => i !== index
+  );
+  setSelectedLetters(newSelectedLetters);
+
+  const newSelectedNames = selectedNames.filter(
+    (selectedName, i) => i !== index
+  );
+  setSelectedNames(newSelectedNames);
+
+  const newSelectedMonths = selectedMonths.filter(
+    (selectedMonth, i) => i !== index
+  );
+  setSelectedMonths(newSelectedMonths);
+};
+
+
   return (
     <>
       <HeaderBack
@@ -97,7 +128,13 @@ const Ex1Md3 = ({ navigation }) => {
           <TextWords>Coloque os meses na ordem:</TextWords>
         </ContainerWords>
         <ContainerItens>
-          <Grid data={data} onLetterPress={handleLetterPress} />
+          <Grid
+            data={data}
+            onLetterPress={handleLetterPress}
+            isLetterSelected={(row, col) =>
+              selectedMonths.includes(data[row][col])
+            }
+          />
         </ContainerItens>
         <ContainerButtons>
           <ButtonExcluir onPress={handleUndo}>
@@ -118,7 +155,7 @@ const Ex1Md3 = ({ navigation }) => {
                         {name}
                       </TextItens>
                     ) : (
-                      <View style={{ height: 46 }} /> // Substitua 20 pela altura que você deseja para a borda
+                      <View style={{ height: 46 }} />
                     )}
                     <Border />
                   </ContainerNames>

@@ -19,11 +19,15 @@ import {
   ButtonBack,
   TextResetModal,
   ButtonReset,
-  ButtonMod
+  SubTitleNames,
+  TextNames,
 } from "./styles";
 
 import IconBack from "../../assets/IconBack.js";
 import MenuLogo from "../../assets/Menu.js";
+import Unifal from "../../assets/Unifal.js";
+import IconDelete from "../../assets/IconDelete.js";
+import Logout from "../../assets/Logout.js";
 
 const HeaderBack = (props) => {
   const { containerBar = true, text, onPress = () => {} } = props;
@@ -89,31 +93,35 @@ const HeaderBack = (props) => {
             }}
           >
             <View
-              style={{ width: "45%", height: "100%", backgroundColor: "white" }}
+              style={{
+                width: "45%",
+                height: "100%",
+                backgroundColor: "white",
+                justifyContent: "space-between",
+              }}
             >
-              <ButtonBack onPress={closeModal}>
-                <TextBackModal>Sair</TextBackModal>
-              </ButtonBack>
-              <ContainerModal>
-                <ButtonMod>
-                  <TitleModal>Módulo 1</TitleModal>
-                </ButtonMod>
-                <ButtonMod>
-                  <TitleModal>Módulo 2</TitleModal>
-                </ButtonMod>
-                <ButtonMod>
-                  <TitleModal>Módulo 3</TitleModal>
-                </ButtonMod>
-                <ButtonMod>
-                  <TitleModal>Módulo 4</TitleModal>
-                </ButtonMod>
-                <ButtonMod>
-                  <TitleModal>Módulo 5</TitleModal>
-                </ButtonMod>
-              </ContainerModal>
-              <ButtonReset>
-                <TextResetModal>Reset</TextResetModal>
-              </ButtonReset>
+              <View
+                style={{
+                  width: "50%",
+                  alignItems: "flex-start",
+                  justifyContent: "center",
+                }}
+              >
+                <ButtonBack onPress={closeModal}>
+                  <TextBackModal>Sair</TextBackModal>
+                  <Logout />
+                </ButtonBack>
+                <ButtonReset>
+                  <TextResetModal>Limpar</TextResetModal>
+                  <IconDelete />
+                </ButtonReset>
+              </View>
+              <View style={{ alignItems: "center", justifyContent: "center" }}>
+                <SubTitleNames>Desenvolvedores:</SubTitleNames>
+                <TextNames>Gustavo C. Lima</TextNames>
+                <TextNames>Thiago Oliveira</TextNames>
+                <Unifal />
+              </View>
             </View>
           </View>
         </Modal>

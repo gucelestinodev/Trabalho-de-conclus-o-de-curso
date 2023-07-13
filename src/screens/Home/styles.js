@@ -4,23 +4,23 @@ export const Container = styled.View`
   flex: 1;
   background-color: #ffffff;
   justify-content: center;
+  align-items: center;
 `;
 
 export const ContainerIteins = styled.View`
-  align-items: center;
+  align-items: center;  
 `;
 
 export const Separador = styled.View`
-  margin-top: 90px;
+  margin-top: 200px;
 `;
 
 export const ContainerButton = styled.TouchableOpacity`
-  background-color: #000000;
+  flex-direction: row;
+  border: 2px #000000 solid;
   width: 130px;
-  height: 45px;
+  padding: 5px;
   border-radius: 10px;
-  align-items: center;
-  justify-content: center;
 `;
 
 export const Title = styled.Text`
@@ -38,7 +38,7 @@ export const SubTitle = styled.Text`
 `;
 
 export const TextButton = styled.Text`
-  font-size: 25px;
-  color: #ffffff;
+  font-size: 30px;
+  color: #000000;
   font-family: 'Roboto-Medium';
 `;

@@ -4,22 +4,22 @@ import {
   Container,
   ContainerButton,
   TextButton,
-  ContainerIteins,
+  Imgs,
   Separador,
-  SubTitle,
 } from "./styles";
 import ImageHome from "../../assets/imageHome.js";
+import LogoApp from "../../assets/Logo_app.js";
+import IconIniciar from "../../assets/IconIniciar.js";
 
 export default function Home({ navigation }) {
   return (
     <Container>
-      <ContainerIteins>
-        <Title>AlfabetizAI</Title>
-        <ImageHome />
-        <ContainerButton onPress={() => navigation.navigate("Activites")}>
-          <TextButton>Iniciar</TextButton>
-        </ContainerButton>
-      </ContainerIteins>
+      <LogoApp />
+      <Separador />
+      <ContainerButton onPress={() => navigation.navigate("Activites")}>
+        <TextButton>Iniciar</TextButton>
+        <IconIniciar />
+      </ContainerButton>
     </Container>
   );
 }
