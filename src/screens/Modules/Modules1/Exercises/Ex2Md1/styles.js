@@ -21,8 +21,6 @@ export const TextWords = styled.Text`
   font-size: 22px;
   color: #000000;
   margin-left: 10px;
-  text-align: center;
-  padding-horizontal: 10px;
   font-family: 'Roboto-Medium';
 `;
 

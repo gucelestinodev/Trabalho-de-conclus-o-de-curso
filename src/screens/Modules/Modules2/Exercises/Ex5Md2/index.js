@@ -21,6 +21,8 @@ import {
 } from "./styles";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import HeaderBack from "../../../../../components/Header";
+import Modal from "../../../../../components/Modal/ModalError";
+
 
 const data = [
   ["P", "E", "I", "R", "D", "A", "B", "O"],
@@ -35,18 +37,48 @@ const wordList = ["PEDRO", "ANTÔNIO", "JOÃO", "EDUARDO", "BENEDITO"];
 const Ex5Md2 = ({ navigation }) => {
   const [word, setWord] = useState([]);
   const [savedWord, setSavedWord] = useState([]);
-
+  const [isError, setIsError] = useState(false);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
   const handleLetterClick = (letter) => {
     setWord([...word, letter]);
   };
 
+  const handleCloseError = () => {
+    setIsError(false);
+  };
+
   const handleReset = () => {
     setWord([]);
   };
 
+  const saveCurrentWordIndex = async (index) => {
+    try {
+      await AsyncStorage.setItem("@current_word_index", index.toString());
+      console.log("Índice da palavra atual salva com sucesso!");
+    } catch (error) {
+      console.log("Erro ao salvar o índice da palavra atual:", error);
+    }
+  };
+  
+  const loadCurrentWordIndex = async () => {
+    try {
+      const storedIndex = await AsyncStorage.getItem("@current_word_index");
+      if (storedIndex !== null) {
+        setCurrentWordIndex(parseInt(storedIndex, 10));
+      }
+    } catch (error) {
+      console.log("Erro ao carregar o índice da palavra atual:", error);
+    }
+  };
+  
+
   const handleSave = async () => {
+    if (word.join("") !== wordList[currentWordIndex]) {
+      setIsError(true);
+      return;
+    }
+
     const newWord = { word: word.join(""), index: currentWordIndex };
     setSavedWord([...savedWord, newWord]);
     await AsyncStorage.setItem(
@@ -55,7 +87,9 @@ const Ex5Md2 = ({ navigation }) => {
     );
     handleReset();
     setCurrentWordIndex((currentWordIndex + 1) % wordList.length);
+    await saveCurrentWordIndex((currentWordIndex + 1) % wordList.length);
   };
+  
 
   const handleDelete = async () => {
     if (savedWord.length > 0) {
@@ -84,8 +118,31 @@ const Ex5Md2 = ({ navigation }) => {
     loadSavedWord();
   }, []);
 
+  const loadCurrentWord = async () => {
+    try {
+      const serializedWord = await AsyncStorage.getItem("@current_wordEx2Md2");
+      if (serializedWord !== null) {
+        const loadedWord = JSON.parse(serializedWord);
+        setWord(loadedWord);
+      }
+    } catch (error) {
+      console.log("Erro ao carregar a palavra atual:", error);
+    }
+  };
+
+  const saveCurrentWord = async (key, word) => {
+    try {
+      const serializedWord = JSON.stringify(word);
+      await AsyncStorage.setItem(key, serializedWord);
+      console.log("Palavra atual salva com sucesso!");
+    } catch (error) {
+      console.log("Erro ao salvar a palavra atual:", error);
+    }
+  };
+
   const handleGoBack = async () => {
     try {
+      await saveCurrentWord("@current_wordEx2Md2", word);
       await AsyncStorage.setItem("params3Ex3Md2", "true");
       navigation.navigate("Modules2");
     } catch (error) {
@@ -100,12 +157,17 @@ const Ex5Md2 = ({ navigation }) => {
         setSavedWord(JSON.parse(storedWord));
       }
     };
-
+    loadCurrentWord();
     loadSavedWord();
+    loadCurrentWordIndex();
   }, []);
 
   return (
     <>
+    <Modal
+        isVisible={isError}
+        onClose={() => setIsError(false)}
+      />
       <Container>
         <HeaderBack
           text="Exercicio 4"
@@ -157,7 +219,7 @@ const Ex5Md2 = ({ navigation }) => {
           ))}
         </ContainerItensPalavras>
         <ContainerButtons>
-          <ButtonSalvar onPress={handleSave}>
+          <ButtonSalvar onPress={savedWord.length === 5 ? null : handleSave}>
             <TextButtonAux>Salvar</TextButtonAux>
           </ButtonSalvar>
           <ButtonExcluir onPress={handleReset}>
