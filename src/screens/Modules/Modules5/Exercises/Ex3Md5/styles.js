@@ -12,8 +12,7 @@ export const Letras = styled.Text`
   font-size: 25px;
   color: #282828;
   text-align: center;
-  font-weight: bold;
-  font-family: 'Roboto';
+  font-family: "Roboto-Bold";
 `;
 
 export const ButtonEnviar = styled.TouchableOpacity`

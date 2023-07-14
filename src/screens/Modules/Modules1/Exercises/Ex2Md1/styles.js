@@ -42,10 +42,9 @@ export const WordsItens1 = styled.View`
 export const TextItens = styled.Text`
   font-size: 22px;
   color: #282828;
-  font-family: "Roboto-Regular";
+  font-family: "Roboto-Medium";
   flex-wrap: wrap;
   margin: 20px 0 -10px 10px;
-  font-weight: 700;
 `;
 
 export const ButtonEnviar = styled.TouchableOpacity`

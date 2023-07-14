@@ -9,16 +9,14 @@ export const Container = styled.View`
 export const Title = styled.Text`
   font-size: 22px;
   color: #282828;
-  font-family: 'Roboto-Medium';
-  font-weight: bold;
+  font-family: "Roboto-Bold";
   margin-bottom: 10px;
 `;
 
 export const TitleOption = styled.Text`
   font-size: 25px;
   color: #282828;
-  font-family: 'Roboto-Medium';
-  font-weight: bold;
+  font-family: "Roboto-Bold";
   margin: 10px 0px 50px 0px;
 `;
 

@@ -54,7 +54,6 @@ export const ButtonBack = styled.TouchableOpacity`
 export const TitleModal = styled.Text`
   font-family: "Roboto-Bold";
   font-size: 22px;
-  font-weight: bold;
   color: #000;
   margin-top: 20px;
 `;

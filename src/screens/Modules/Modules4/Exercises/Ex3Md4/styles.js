@@ -24,7 +24,7 @@ export const TextWords = styled.Text`
   font-family: "Roboto-Medium";
 `;
 export const Negrito = styled.Text`
-  font-weight: bold;
+  font-family: "Roboto-Bold";
   font-size: 28px;
   color: #000000;
 `;
@@ -43,8 +43,7 @@ export const WordsItens1 = styled.View`
 export const TextItens = styled.Text`
   font-size: 22px;
   color: #282828;
-  font-family: "Roboto-Regular";
-  font-weight: bold;
+  font-family: "Roboto-Bold";
   margin: 20px 0 -10px 10px;
 `;
 

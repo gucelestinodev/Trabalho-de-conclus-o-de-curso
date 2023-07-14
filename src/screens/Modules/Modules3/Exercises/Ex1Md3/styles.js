@@ -101,12 +101,13 @@ export const ButtonApagar = styled.TouchableOpacity`
 export const TextButtonAux = styled.Text`
   font-size: 18px;
   color: #ffffff;
-  font-weight: bold;
+  font-family: 'Roboto-Bold';
 `;
 
 export const TextButton = styled.Text`
   font-size: 25px;
   color: #ffffff;
+  font-family: 'Roboto-Medium';
 `;
 
 export const Border = styled.View`

@@ -5,8 +5,7 @@ export const Title = styled.Text`
   color: #282828;
   text-align: center;
   margin-bottom: 30px;
-  font-family: 'Roboto';
-  font-weight: 900;
+  font-family: 'Roboto-Bold';
 `;
 
 export const ButtonEnviarCinza = styled.TouchableOpacity`
@@ -37,5 +36,5 @@ export const TextButton = styled.Text`
 export const TextCaçaPalavras = styled.Text`
   font-size: 25px;
   color: #000000;
-  font-weight: 500;
+  font-family: 'Roboto-Medium';
 `;

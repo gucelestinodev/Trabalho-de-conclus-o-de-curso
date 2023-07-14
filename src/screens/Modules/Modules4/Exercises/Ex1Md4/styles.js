@@ -36,7 +36,7 @@ export const WordsItens1 = styled.View`
 `;
 
 export const Negrito = styled.Text`
-  font-weight: bold;
+font-family: 'Roboto-Bold';
   font-size: 28px;
   color: #000000;
 `;

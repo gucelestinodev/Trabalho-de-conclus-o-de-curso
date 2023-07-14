@@ -36,12 +36,11 @@ export const Title = styled.Text`
 export const TextWords = styled.Text`
   font-size: 22px;
   color: #000000;
-  font-weight: 500;
   margin-left: 10px;
   border: solid 1px #000000;
   border-radius: 10px;
   padding: 10px;
-  font-family: 'Roboto-Bold';
+  font-family: 'Roboto-Medium';
 `;
 
 export const WordsItens = styled.View`

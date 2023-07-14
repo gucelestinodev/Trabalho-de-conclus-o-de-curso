@@ -33,10 +33,9 @@ export const WordsItens = styled.View`
 export const TextItens = styled.Text`
   font-size: 25px;
   color: #282828;
-  font-family: "Roboto-Regular";
   flex-wrap: wrap;
   margin: 20px 0 -10px 10px;
-  font-weight: 700;
+  font-family: "Roboto-Bold";
 `;
 
 export const ButtonEnviar = styled.TouchableOpacity`

@@ -41,9 +41,8 @@ export const TextItens = styled.Text`
 export const Title = styled.Text`
   font-size: 10px;
   color: #282828;
-  font-family: 'Roboto-Regular';
+  font-family: 'Roboto-Bold';
   margin: 10px 100px 2px 0px;
-  font-weight: bold;
 `;
 
 export const TitleEx = styled.Text`

@@ -13,7 +13,7 @@ export const ButtonClose = styled.TouchableOpacity`
 export const Title = styled.Text`
   color: #000000;
   font-size: 30px;
-  font-weight: bold;
+  font-family: "Roboto-Bold";
   text-align: center;
   margin-bottom: 10px;
 `;

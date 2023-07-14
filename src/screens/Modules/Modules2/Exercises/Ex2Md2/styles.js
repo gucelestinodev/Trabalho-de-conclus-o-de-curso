@@ -5,14 +5,13 @@ export const Title = styled.Text`
   color: #282828;
   text-align: center;
   margin-bottom: 30px;
-  font-family: "Roboto";
-  font-weight: 700;
+  font-family: "Roboto-Medium";
 `;
 
 export const TextCaçaPalavras = styled.Text`
   font-size: 25px;
   color: #000000;
-  font-weight: 500;
+  font-family: 'Roboto-Medium';
 `;
 
 export const ButtonEnviarCinza = styled.TouchableOpacity`

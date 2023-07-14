@@ -26,8 +26,7 @@ export const ContainerButton = styled.TouchableOpacity`
 export const Title = styled.Text`
   font-size: 28px;
   color: #282828; 
-  font-family: 'Roboto-Regular';
-  font-weight: bold;
+  font-family: 'Roboto-Medium';
 `;
 
 export const SubTitle = styled.Text`
