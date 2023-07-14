@@ -6,7 +6,7 @@ import {
   TouchableWithoutFeedback,
   StyleSheet,
 } from "react-native";
-import { ButtonClose, Title } from "./styles";
+import { ButtonClose, Title, SubTitle,TextButton } from "./styles";
 
 import IconError from "../../../assets/IconError";
 import Close from "../../../assets/Close";
@@ -21,13 +21,14 @@ const ModalError = ({ isVisible, onClose }) => {
     >
       <View style={styles.modalOverlay}>
         <View style={styles.modal}>
-          <ButtonClose onPress={onClose}>
-            <Close />
-          </ButtonClose>
-          <Title>Errou</Title>
           <View style={styles.img}>
             <IconError />
           </View>
+          <Title>Atenção!</Title>
+          <SubTitle>Tente novamente.</SubTitle>
+          <ButtonClose onPress={onClose}>
+            <TextButton>OK</TextButton>
+          </ButtonClose>
         </View>
       </View>
     </Modal>
@@ -43,10 +44,12 @@ const styles = StyleSheet.create({
   },
   modal: {
     backgroundColor: "#FFFFFF",
-    width: 200,
-    height: 230,
+    width: 300,
+    height: 300,
     margin: 20,
     borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
   },
   button: {
     marginBottom: 50,
