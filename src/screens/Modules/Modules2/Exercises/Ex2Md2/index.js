@@ -73,7 +73,7 @@ export default function Ex3Md1({ navigation }) {
         foundWordsCells,
         foundWords,
       };
-      await AsyncStorage.setItem("gameData1Ex2Md2", JSON.stringify(gameData));
+      await AsyncStorage.setItem("gameDataEx2Md2", JSON.stringify(gameData));
       console.log("Jogo salvo com sucesso!");
     } catch (error) {
       console.log("Erro ao salvar o jogo:", error);
