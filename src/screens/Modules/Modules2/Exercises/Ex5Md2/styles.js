@@ -29,6 +29,8 @@ export const Title = styled.Text`
   font-size: 25px;
   color: #000000;
   margin-bottom: 10px;
+  font-family: 'Roboto-Medium ';
+
 `;
 
 export const TextWords = styled.Text`
@@ -39,6 +41,7 @@ export const TextWords = styled.Text`
   border: solid 1px #000000;
   border-radius: 10px;
   padding: 10px;
+  font-family: 'Roboto-Bold';
 `;
 
 export const WordsItens = styled.View`
@@ -134,12 +137,13 @@ export const ButtonSalvar = styled.TouchableOpacity`
 export const TextButtonAux = styled.Text`
   font-size: 20px;
   color: #ffffff;
-  font-weight: bold;
+  font-family: 'Roboto-Bold';
 `;
 
 export const TextButton = styled.Text`
   font-size: 25px;
   color: #ffffff;
+  font-family: 'Roboto-Bold';
 `;
 
 export const Border = styled.View`

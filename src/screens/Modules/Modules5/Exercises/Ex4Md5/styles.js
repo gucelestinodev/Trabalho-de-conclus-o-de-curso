@@ -10,7 +10,6 @@ export const Title = styled.Text`
   font-size: 22px;
   color: #282828;
   font-family: 'Roboto-Medium';
-  font-weight: bold;
   margin-bottom: 10px;
 `;
 
@@ -18,7 +17,6 @@ export const TitleOption = styled.Text`
   font-size: 25px;
   color: #282828;
   font-family: 'Roboto-Medium';
-  font-weight: bold;
   margin: 10px 0px 50px 0px;
 `;
 
@@ -61,6 +59,7 @@ export const ButtonEnviarCinza = styled.TouchableOpacity`
 
 
 export const TextButton = styled.Text`
-  font-size: 25px;
+  font-size: 27px;
   color: #ffffff;
+  font-family: 'Roboto-Bold ';
 `;

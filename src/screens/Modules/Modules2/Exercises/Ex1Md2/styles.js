@@ -124,12 +124,13 @@ export const ButtonSalvar = styled.TouchableOpacity`
 export const TextButtonAux = styled.Text`
   font-size: 20px;
   color: #ffffff;
-  font-weight: bold;
+  font-family: 'Roboto-Bold';
 `;
 
 export const TextButton = styled.Text`
   font-size: 25px;
   color: #ffffff;
+  font-family: 'Roboto-Bold';
 `;
 
 export const Border = styled.View`
@@ -142,7 +143,7 @@ export const Border = styled.View`
 export const TextPalavra = styled.Text`
   font-size: 26px;
   color: #000000;
-  font-weight: bold;
   margin-left: 10px;
+  font-family: 'Roboto-Bold';
 `;
 

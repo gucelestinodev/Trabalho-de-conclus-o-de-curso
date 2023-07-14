@@ -18,9 +18,10 @@ export const ContainerWords = styled.View`
 `;
 
 export const TextWords = styled.Text`
-  font-size: 20px;
+  font-size: 22px;
   color: #000000;
-  margin-left: 10px;
+  margin-left: 5px;
+  font-family: "Roboto-Medium";
 `;
 
 export const WordsItens = styled.View`
@@ -97,12 +98,13 @@ export const ButtonSalvar = styled.TouchableOpacity`
 export const TextButtonAux = styled.Text`
   font-size: 15px;
   color: #ffffff;
-  font-weight: bold;
+  font-family: "Roboto-Bold";
 `;
 
 export const TextButton = styled.Text`
   font-size: 25px;
   color: #ffffff;
+  font-family: "Roboto-Medium";
 `;
 
 export const Border = styled.View`

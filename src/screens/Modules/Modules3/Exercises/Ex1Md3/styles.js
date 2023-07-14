@@ -27,6 +27,7 @@ export const TextWords = styled.Text`
   font-size: 22px;
   color: #000000;
   margin-left: 10px;
+  font-family: "Roboto-Medium";
 `;
 
 export const WordsItens = styled.View`
@@ -37,8 +38,7 @@ export const WordsItens = styled.View`
 export const TextItens = styled.Text`
   font-size: 20px;
   color: #282828;
-  font-family: "Roboto-Regular";
-  font-weight: 700;
+  font-family: "Roboto-Medium";
   margin: 20px 0 0px 10px;
 `;
 

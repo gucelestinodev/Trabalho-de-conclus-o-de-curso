@@ -18,10 +18,10 @@ export const ContainerWords = styled.View`
 `;
 
 export const TextWords = styled.Text`
-  font-size: 22px;
+  font-size: 24px;
   color: #000000;
-  padding-horizontal: 50px;
-  text-align: center;
+  margin-left: 10px;
+  font-family: "Roboto-Medium";
 `;
 export const Negrito = styled.Text`
   font-weight: bold;
@@ -96,14 +96,16 @@ export const ButtonSalvar = styled.TouchableOpacity`
 `;
 
 export const TextButtonAux = styled.Text`
-  font-size: 15px;
+  font-size: 20px;
   color: #ffffff;
-  font-weight: bold;
+  font-family: "Roboto-Bold";
+
 `;
 
 export const TextButton = styled.Text`
-  font-size: 25px;
+  font-size: 27px;
   color: #ffffff;
+  font-family: "Roboto-Bold";
 `;
 
 export const Border = styled.View`

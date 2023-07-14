@@ -97,6 +97,7 @@ export const ButtonEnviarCinza = styled.TouchableOpacity`
 export const TextButton = styled.Text`
   font-size: 25px;
   color: #ffffff;
+  font-family: "Roboto-Bold";
 `;
 
 export const ContainerColors = styled.View`
@@ -108,4 +109,5 @@ export const ContainerColors = styled.View`
 export const TextColors = styled.Text`
   font-size: 25px;
   color: #000000;
+  font-family: "Roboto-Regular";
 `;
