@@ -114,7 +114,7 @@ export const Border = styled.View`
 `;
 
 export const ButtonApagar = styled.TouchableOpacity`
-  background-color: #000000;
+  background-color: #4682B4;
   width: 100px;
   height: 40px;
   border-radius: 10px;
