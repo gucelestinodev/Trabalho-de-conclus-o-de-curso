@@ -31,6 +31,7 @@ const Ex1Md1 = ({ navigation }) => {
   const [selectedLetters, setSelectedLetters] = useState([]);
   const [undo, setUndo] = useState(false);
   const [words, setWords] = useState([]);
+  const [deletedWords, setDeletedWords] = useState([]);
   const [palavras, setPalavras] = useState([]);
 
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -83,28 +84,35 @@ const Ex1Md1 = ({ navigation }) => {
       .map((letter) => data[letter.row][letter.col])
       .join("");
     const currentWord = wordList[currentWordIndex];
-
+  
     if (getVowels(currentWord) === selectedWord) {
       setWords([...words, selectedWord]);
       setSelectedLetters([]);
       setCurrentWordIndex(currentWordIndex + 1);
     } else {
       setIsModalVisible(true);
-      console.log("aqui");
     }
   };
+  
 
-  const handleDelete = async () => {
+  const handleDelete = () => {
     const newWords = words.slice(0, -1); // remove a última palavra
+    const deletedWord = words[words.length - 1];
     setWords(newWords);
-    try {
-      const serializedWords = JSON.stringify(newWords);
-      await AsyncStorage.setItem("palavrasEx1Md1", serializedWords);
-      console.log("Palavra apagada com sucesso!");
-    } catch (error) {
-      console.log("Erro ao apagar a palavra:", error);
-    }
+    setDeletedWords([...deletedWords, deletedWord]);
+    setCurrentWord(newWords.length); // Redefine a palavra corrente
   };
+  
+
+  const setCurrentWord = (index) => {
+    setCurrentWordIndex(index);
+    setSelectedLetters(
+      wordList[index]
+        .split('')
+        .map(letter => ({ row: 0, col: "AEIOU".indexOf(letter) }))
+    );
+  };
+  
 
   const selectedWord = selectedLetters
     .map((letter) => data[letter.row][letter.col])
