@@ -22,7 +22,7 @@ export const TextWords = styled.Text`
   color: #000000;
   margin-left: 10px;
   text-align: center;
-  padding-horizontal: 50px;
+  padding-horizontal: 10px;
 `;
 
 export const WordsItens = styled.View`
@@ -84,7 +84,7 @@ export const ButtonExcluir = styled.TouchableOpacity`
 `;
 
 export const ButtonApagar = styled.TouchableOpacity`
-  background-color: #000000;
+  background-color: #4682B4;
   width: 100px;
   height: 40px;
   border-radius: 10px;

@@ -17,6 +17,7 @@ import {
   ButtonEnviarCinza,
   WordsLetras,
   ButtonApagar,
+  TitleEx
 } from "./styles";
 import Grid from "../../../../../components/Jogos/HuntingWords/Grid";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -136,6 +137,7 @@ const Ex1Md1 = ({ navigation }) => {
           text="Exercicio 1"
           onPress={() => navigation.navigate("Modules1")}
         />
+        <TitleEx>Digite as vogais:</TitleEx>
         <ContainerWords>
           <TextWords>{wordList[currentWordIndex]}</TextWords>
         </ContainerWords>
@@ -168,7 +170,7 @@ const Ex1Md1 = ({ navigation }) => {
             <TextItens>{words[4]}</TextItens>
           </View>
         </WordsItens>
-        <View style={{ position: "absolute", left: 260, top: 600 }}>
+        <View style={{ position: "absolute", left: 260, top: 640 }}>
           <ButtonApagar onPress={handleDelete}>
             <TextButtonAux>Apagar</TextButtonAux>
           </ButtonApagar>

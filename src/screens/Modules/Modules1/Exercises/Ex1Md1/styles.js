@@ -18,10 +18,10 @@ export const ContainerWords = styled.View`
 `;
 
 export const TextWords = styled.Text`
-  font-size: 22px;
+  font-size: 25px;
   color: #000000;
-  font-weight: 500;
   margin-left: 10px;
+  font-family: 'Roboto-Medium';
 `;
 
 export const WordsItens = styled.View`
@@ -34,17 +34,24 @@ export const WordsItens = styled.View`
 export const TextItens = styled.Text`
   font-size: 22px;
   color: #282828;
+  font-family: 'Roboto-Bold';
+  margin: 10px 100px 2px 0px;
+`;
+
+export const Title = styled.Text`
+  font-size: 10px;
+  color: #282828;
   font-family: 'Roboto-Regular';
   margin: 10px 100px 2px 0px;
   font-weight: bold;
 `;
 
-export const Title = styled.Text`
-  font-size: 22px;
+export const TitleEx = styled.Text`
+  font-size: 25px;
   color: #282828;
-  font-family: 'Roboto-Regular';
-  margin: 10px 100px 2px 0px;
-  font-weight: bold;
+  font-family: 'Roboto-Medium';
+  margin-top: 5px;
+  margin-left: 20px;
 `;
 
 export const ButtonEnviar = styled.TouchableOpacity`
@@ -84,7 +91,7 @@ export const ButtonExcluir = styled.TouchableOpacity`
 `;
 
 export const ButtonApagar = styled.TouchableOpacity`
-  background-color: #000000;
+  background-color: #4682B4;
   width: 100px;
   height: 40px;
   border-radius: 10px;
@@ -106,12 +113,13 @@ export const ButtonSalvar = styled.TouchableOpacity`
 export const TextButtonAux = styled.Text`
   font-size: 20px;
   color: #ffffff;
-  font-weight: bold;
+  font-family: 'Roboto-Bold'
 `;
 
 export const TextButton = styled.Text`
   font-size: 25px;
   color: #ffffff;
+  font-family: 'Roboto-Bold'
 `;
 
 export const Border = styled.View`
@@ -123,7 +131,7 @@ export const Border = styled.View`
 
 export const WordsLetras = styled.Text`
   font-size: 22px;
-  color: #000000;
-  font-weight: 400;
+  color: #000000;  
+  font-family: 'Roboto-Medium';
   margin: 10px 0px 2px 10px;
 `;

@@ -41,7 +41,11 @@ const Ex1Md2 = ({ navigation }) => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
   const handleLetterClick = (letter) => {
-    setWord((prevWord) => [...prevWord, letter]);
+    if (word.length === 0 && savedWord.length >= 6) {
+      // não faça nada se a palavra atual estiver vazia e já tivermos 6 palavras salvas
+    } else {
+      setWord((prevWord) => [...prevWord, letter]);
+    }
   };
 
   const handleReset = () => {
@@ -93,7 +97,11 @@ const Ex1Md2 = ({ navigation }) => {
     const loadSavedWord = async () => {
       const storedWord = await AsyncStorage.getItem("@saved_word");
       if (storedWord !== null) {
-        setSavedWord(JSON.parse(storedWord));
+        const savedWords = JSON.parse(storedWord);
+        setSavedWord(savedWords);
+        if (savedWords.length > 0) {
+          setCurrentWordIndex(savedWords[savedWords.length - 1].index + 1);
+        }
       }
     };
 
@@ -112,6 +120,8 @@ const Ex1Md2 = ({ navigation }) => {
   const lastIndex =
     savedWord.length > 0 ? savedWord[savedWord.length - 1].index : -1;
 
+  console.log(currentWordIndex);
+
   return (
     <>
       <Container>
@@ -124,48 +134,52 @@ const Ex1Md2 = ({ navigation }) => {
           <TextWords>{wordList[currentWordIndex]}</TextWords>
         </ContainerWords>
         <ContainerItens>
-          {data[currentWordIndex].map((letter, index) => (
-            <TouchableOpacity
-              key={index}
-              style={{
-                width: 70,
-                height: 70,
-                alignItems: "center",
-                justifyContent: "center",
-                backgroundColor: "#D9D9D9",
-                margin: 5,
-                borderRadius: 5,
-              }}
-              onPress={() => handleLetterClick(letter)}
-            >
-              <Text
+          {data[currentWordIndex] &&
+            data[currentWordIndex].map((letter, index) => (
+              <TouchableOpacity
+                key={index}
                 style={{
-                  fontSize: 30,
-                  color: "#000000",
-                  fontFamily: "Roboto-Bold",
+                  width: 70,
+                  height: 70,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: "#D9D9D9",
+                  margin: 5,
+                  borderRadius: 5,
                 }}
+                onPress={() => handleLetterClick(letter)}
               >
-                {letter}
-              </Text>
-            </TouchableOpacity>
-          ))}
+                <Text
+                  style={{
+                    fontSize: 30,
+                    color: "#000000",
+                    fontFamily: "Roboto-Bold",
+                  }}
+                >
+                  {letter}
+                </Text>
+              </TouchableOpacity>
+            ))}
         </ContainerItens>
         <ContainerItensPalavras>
-          {word.map((letter, index) => (
-            <View
-              key={index}
-              style={{
-                marginRight: 5,
-                borderRadius: 5,
-              }}
-            >
-              <Text style={{ fontSize: 25 }}>{letter}</Text>
-            </View>
-          ))}
+          {word &&
+            word.map((letter, index) => (
+              <View
+                key={index}
+                style={{
+                  marginRight: 5,
+                  borderRadius: 5,
+                }}
+              >
+                <Text style={{ fontSize: 25, fontFamily: "Roboto-Regular" }}>
+                  {letter}
+                </Text>
+              </View>
+            ))}
         </ContainerItensPalavras>
         <Border />
         <ContainerButtons>
-          <ButtonSalvar onPress={handleSave}>
+          <ButtonSalvar onPress={savedWord.length === 6 ? null : handleSave }>
             <TextButtonAux>Salvar</TextButtonAux>
           </ButtonSalvar>
           <ButtonExcluir onPress={handleReset}>

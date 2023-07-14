@@ -16,6 +16,8 @@ export const Title = styled.Text`
   font-size: 22px;
   color: #000000;
   margin-bottom: 10px;
+  margin-left: 10px;
+  font-family: 'Roboto-Medium';
 `;
 
 export const ContainerItensPalavras = styled.View`
@@ -26,7 +28,6 @@ export const ContainerItensPalavras = styled.View`
 
 export const ContainerWords = styled.View`
   flex-direction: column;
-  align-items: center;
   justify-content: space-around;
   margin: 10px 0px 10px 0px;
 `;
@@ -34,8 +35,9 @@ export const ContainerWords = styled.View`
 export const TextWords = styled.Text`
   font-size: 25px;
   color: #000000;
-  font-weight: bold;
+  font-family: 'Roboto-Bold';
   margin-left: 10px;
+  text-align: center;
 `;
 
 export const WordsItens = styled.View`

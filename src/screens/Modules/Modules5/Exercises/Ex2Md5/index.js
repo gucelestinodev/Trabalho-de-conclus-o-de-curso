@@ -234,7 +234,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   selectedButton: {
-    backgroundColor: "#5DB075",
+    backgroundColor: "#ffd719",
   },
   buttonText: {
     fontSize: 18,
@@ -242,7 +242,7 @@ const styles = StyleSheet.create({
     color: "black",
   },
   selectedButtonText: {
-    color: "white",
+    color: "black",
   },
 });
 
