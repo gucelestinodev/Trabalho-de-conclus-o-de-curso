@@ -45,9 +45,9 @@ export const ColumnRight = styled.TouchableOpacity`
 
 export const ButtonBack = styled.TouchableOpacity`
   flex-direction: row;
-  align-items: center;
+  justify-content: flex-end;
   background-color: "#000000";
-  margin: 10px 0px 10px 5px;
+  padding: 10px 10px 0px 0px;
   width: 100%;
 `;
 
@@ -69,6 +69,7 @@ export const TextResetModal = styled.Text`
   font-family: "Roboto-Medium";
   font-size: 22px;
   color: #000;
+  margin: 0px 20px 0px 5px;
 `;
 
 export const SubTitleNames = styled.Text`
@@ -79,17 +80,17 @@ export const SubTitleNames = styled.Text`
 `;
 
 export const TextNames = styled.Text`
-  font-family: "Roboto-Regular";
+  font-family: "Roboto-Medium";
   font-size: 18px;
   color: #000;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 `;
 
 export const ButtonReset = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   background-color: "#000000";
-  margin-left: 5px;
+  padding-top: 20px;
 `;
 
 export const ButtonMod = styled.TouchableOpacity`

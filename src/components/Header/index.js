@@ -97,26 +97,18 @@ const HeaderBack = (props) => {
                 width: "45%",
                 height: "100%",
                 backgroundColor: "white",
-                justifyContent: "space-between",
               }}
             >
+              <ButtonBack onPress={closeModal}>
+                <Logout />
+              </ButtonBack>
+              <ButtonReset>
+                <TextResetModal>Limpar App</TextResetModal>
+                <IconDelete />
+              </ButtonReset>
               <View
-                style={{
-                  width: "50%",
-                  alignItems: "flex-start",
-                  justifyContent: "center",
-                }}
+                style={{ flex: 1, alignItems: "flex-start", justifyContent: "flex-end" }}
               >
-                <ButtonBack onPress={closeModal}>
-                  <TextBackModal>Sair</TextBackModal>
-                  <Logout />
-                </ButtonBack>
-                <ButtonReset>
-                  <TextResetModal>Limpar</TextResetModal>
-                  <IconDelete />
-                </ButtonReset>
-              </View>
-              <View style={{ alignItems: "center", justifyContent: "center" }}>
                 <SubTitleNames>Desenvolvedores:</SubTitleNames>
                 <TextNames>Gustavo C. Lima</TextNames>
                 <TextNames>Thiago Oliveira</TextNames>
