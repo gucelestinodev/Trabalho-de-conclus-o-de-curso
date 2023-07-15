@@ -1,46 +1,62 @@
 import { shuffle } from "lodash";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Dimensions, PanResponder, StyleSheet, View } from "react-native";
 import Svg, { Circle, Line, Text } from "react-native-svg";
 import { Container, ContainerButton, TextButton } from "./styles";
 import HeaderBack from "../../../../../components/Header";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const window = Dimensions.get("window");
 
-const Ex6Md2 = ({navigation}) => {
+const Ex6Md2 = ({ navigation }) => {
   const [lines, setLines] = useState([]);
   const [currentLine, setCurrentLine] = useState(null);
+  const [connectedDots, setConnectedDots] = useState({});
+  const [dots, setDots] = useState([]);
 
-  const dots = shuffle([
-    { x: 50, y: window.height / 5, color: "#000000", letter: "A" },
-    { x: 50, y: (window.height / 5) * 2, color: "#000000", letter: "B" },
-    { x: 50, y: (window.height / 5) * 3, color: "#000000", letter: "C" },
-    { x: 50, y: (window.height / 5) * 4, color: "#000000", letter: "D" },
-    {
-      x: window.width - 50,
-      y: (window.height / 5) * 3,
-      color: "#000000",
-      letter: "a",
-    },
-    {
-      x: window.width - 50,
-      y: (window.height / 5) * 2,
-      color: "#000000",
-      letter: "b",
-    },
-    {
-      x: window.width - 50,
-     y: window.height / 5,
-      color: "#000000",
-      letter: "c",
-    },
-    {
-      x: window.width - 50,
-      y: (window.height / 5) * 4,
-      color: "#000000",
-      letter: "d",
-    },
-  ]);
+  useEffect(() => {
+    const initialDots = shuffle([
+      { x: 50, y: window.height / 5, color: "#000000", letter: "A" },
+      { x: 50, y: (window.height / 5) * 2, color: "#000000", letter: "B" },
+      { x: 50, y: (window.height / 5) * 3, color: "#000000", letter: "C" },
+      { x: 50, y: (window.height / 5) * 4, color: "#000000", letter: "D" },
+      {
+        x: window.width - 50,
+        y: (window.height / 5) * 3,
+        color: "#000000",
+        letter: "a",
+      },
+      {
+        x: window.width - 50,
+        y: (window.height / 5) * 2,
+        color: "#000000",
+        letter: "b",
+      },
+      {
+        x: window.width - 50,
+        y: window.height / 5,
+        color: "#000000",
+        letter: "c",
+      },
+      {
+        x: window.width - 50,
+        y: (window.height / 5) * 4,
+        color: "#000000",
+        letter: "d",
+      },
+    ]);
+    setDots(initialDots);
+  }, []);
+
+  const saveLinesAndNavigate = async () => {
+    try {
+      await AsyncStorage.setItem("@Lines", JSON.stringify(lines));
+      await AsyncStorage.setItem("params4Ex4Md2", "true");
+      navigation.navigate("Modules2");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
@@ -51,6 +67,14 @@ const Ex6Md2 = ({navigation}) => {
           Math.abs(gestureState.y0 - dot.y) < 30 &&
           dot.x === 50
         ) {
+          // se o ponto já foi conectado, não fazemos nada
+          if (connectedDots[index]) {
+            return;
+          }
+
+          // adiciona o ponto ao connectedDots
+          setConnectedDots((prevState) => ({ ...prevState, [index]: true }));
+
           setCurrentLine({
             start: { x: dot.x, y: dot.y, color: dot.color },
             end: { x: dot.x, y: dot.y, color: dot.color },
@@ -89,7 +113,20 @@ const Ex6Md2 = ({navigation}) => {
     },
   });
 
-  console.log(currentLine);
+  useEffect(() => {
+    const fetchLines = async () => {
+      try {
+        const savedLines = await AsyncStorage.getItem("@Lines");
+        if (savedLines !== null) {
+          setLines(JSON.parse(savedLines));
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchLines();
+  }, []);
 
   return (
     <>
@@ -105,11 +142,11 @@ const Ex6Md2 = ({navigation}) => {
         >
           {dots.map((dot, index) => (
             <Svg key={index}>
-              <Circle cx={dot.x} cy={dot.y} r="20" fill={dot.color} />
+              <Circle cx={dot.x} cy={dot.y} r="40" fill={dot.color} />
               <Text
-                style={{ fontSize: 40, textAlign: "center" }}
+                fontSize="40" // Use a propriedade fontSize do componente Text do react-native-svg
                 x={dot.x}
-                y={dot.y + 15}
+                y={dot.y + 20} // Aumentado para refletir a mudança no tamanho do círculo
                 fill="white"
                 textAnchor="middle"
               >
@@ -117,6 +154,7 @@ const Ex6Md2 = ({navigation}) => {
               </Text>
             </Svg>
           ))}
+
           {lines.map((line, index) => (
             <Line
               key={index}
@@ -140,7 +178,7 @@ const Ex6Md2 = ({navigation}) => {
           )}
         </Svg>
         <Container>
-          <ContainerButton onPress={() => {}}>
+          <ContainerButton onPress={saveLinesAndNavigate}>
             <TextButton>Enviar</TextButton>
           </ContainerButton>
         </Container>

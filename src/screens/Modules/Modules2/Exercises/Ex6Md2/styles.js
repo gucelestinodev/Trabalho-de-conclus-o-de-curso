@@ -19,7 +19,7 @@ export const ContainerButton = styled.TouchableOpacity`
   background-color: #5db075;
   width: 230px;
   height: 55px;
-  border-radius: 30px;
+  border-radius: 10px;
   align-items: center;
   justify-content: center;
   margin-bottom: 30px;
@@ -27,6 +27,7 @@ export const ContainerButton = styled.TouchableOpacity`
 
 
 export const TextButton = styled.Text`
-  font-size: 25px;
+  font-size: 27px;
   color: #ffffff;
+  font-family: 'Roboto-Bold';
 `;

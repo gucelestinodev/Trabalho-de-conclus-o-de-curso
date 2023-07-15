@@ -13,9 +13,12 @@ import {
 } from "./styles";
 
 import HeaderBack from "../../../../../components/Header";
+import ModalError from "../../../../../components/Modal/ModalError";
 
 const Ex4Md5 = ({ navigation }) => {
   const [selectedButtonsNew, setSelectedButtonsNew] = useState({});
+  const [isModalVisible, setModalVisible] = useState(false);
+
   const buttonNumbers = [85, 87];
   const buttonNumbers1 = [48, 46];
   const buttonNumbers2 = [33, 31];
@@ -43,6 +46,28 @@ const Ex4Md5 = ({ navigation }) => {
     }
   };
 
+  const checkSelections = () => {
+    const targetNumbers = {
+      container1: 87,
+      container2: 48,
+      container3: 33,
+      container4: 96,
+    };
+
+    // Verificar se as propriedades e valores dos objetos correspondem
+    for (let container in targetNumbers) {
+      if (selectedButtonsNew[container] !== targetNumbers[container]) {
+        return false;
+      }
+      console.log(
+        selectedButtonsNew[container],
+        "aqui tem mais coisa",
+        targetNumbers[container]
+      );
+    }
+    return true;
+  };
+
   const storeSelectedButtons = async () => {
     try {
       const value = JSON.stringify(selectedButtonsNew);
@@ -65,6 +90,15 @@ const Ex4Md5 = ({ navigation }) => {
   const isContainerComplete = (container) => !!selectedButtonsNew[container];
 
   const handleGoBack = async () => {
+    // Verificar se as respostas estão corretas
+    if (!checkSelections()) {
+      // Mostrar uma mensagem ao usuário se a resposta estiver errada
+      alert(
+        "Por favor, verifique sua resposta. Os números selecionados devem ser antecessores dos números dados."
+      );
+      return;
+    }
+
     try {
       await AsyncStorage.setItem("paramsEx4Md5", "true");
       navigation.navigate("Modules5");
@@ -75,6 +109,10 @@ const Ex4Md5 = ({ navigation }) => {
 
   return (
     <>
+      <ModalError
+        isVisible={isModalVisible}
+        onClose={() => setModalVisible(false)}
+      />
       <HeaderBack
         text="Exercicio 2"
         onPress={() => navigation.navigate("Modules5")}
@@ -207,7 +245,15 @@ const Ex4Md5 = ({ navigation }) => {
       </Container>
       {Object.keys(selectedButtonsNew).length === 4 ? (
         <View style={{ alignItems: "center", backgroundColor: "#FFFFFF" }}>
-          <ButtonEnviar onPress={() => handleGoBack()}>
+          <ButtonEnviar
+            onPress={() => {
+              if (checkSelections()) {
+                handleGoBack();
+              } else {
+                setModalVisible(true);
+              }
+            }}
+          >
             <TextButton>Enviar</TextButton>
           </ButtonEnviar>
         </View>

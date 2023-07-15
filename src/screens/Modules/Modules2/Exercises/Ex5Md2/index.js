@@ -194,7 +194,7 @@ const Ex5Md2 = ({ navigation }) => {
             >
               <Text
                 style={{
-                  fontSize: 25,
+                  fontSize: 30,
                   color: "#000000",
                   fontFamily: "Roboto-Bold",
                 }}

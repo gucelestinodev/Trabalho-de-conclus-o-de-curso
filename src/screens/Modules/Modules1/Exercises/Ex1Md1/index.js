@@ -134,6 +134,8 @@ const Ex1Md1 = ({ navigation }) => {
       .join("");
   }
 
+console.log(words.length)
+
   return (
     <>
       <Modal
@@ -179,7 +181,7 @@ const Ex1Md1 = ({ navigation }) => {
           </View>
         </WordsItens>
         <View style={{ position: "absolute", left: 260, top: 640 }}>
-          <ButtonApagar onPress={handleDelete}>
+          <ButtonApagar onPress={words.length > 5 ? null : handleDelete}>
             <TextButtonAux>Apagar</TextButtonAux>
           </ButtonApagar>
         </View>
