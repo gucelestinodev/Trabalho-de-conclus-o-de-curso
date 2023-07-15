@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "TCC2.app"
-               BlueprintName = "TCC2"
-               ReferencedContainer = "container:TCC2.xcodeproj">
+               BuildableName = "AlfabetizAI.app"
+               BlueprintName = "AlfabetizAI"
+               ReferencedContainer = "container:AlfabetizAI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "TCC2Tests.xctest"
-               BlueprintName = "TCC2Tests"
-               ReferencedContainer = "container:TCC2.xcodeproj">
+               BuildableName = "AlfabetizAITests.xctest"
+               BlueprintName = "AlfabetizAITests"
+               ReferencedContainer = "container:AlfabetizAI.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "TCC2.app"
-            BlueprintName = "TCC2"
-            ReferencedContainer = "container:TCC2.xcodeproj">
+            BuildableName = "AlfabetizAI.app"
+            BlueprintName = "AlfabetizAI"
+            ReferencedContainer = "container:AlfabetizAI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "TCC2.app"
-            BlueprintName = "TCC2"
-            ReferencedContainer = "container:TCC2.xcodeproj">
+            BuildableName = "AlfabetizAI.app"
+            BlueprintName = "AlfabetizAI"
+            ReferencedContainer = "container:AlfabetizAI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

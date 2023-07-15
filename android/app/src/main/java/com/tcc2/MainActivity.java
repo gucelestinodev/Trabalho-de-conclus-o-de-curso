@@ -1,4 +1,4 @@
-package com.tcc2;
+package com.AlfabetizAI;
 
 import android.os.Build;
 import android.os.Bundle;

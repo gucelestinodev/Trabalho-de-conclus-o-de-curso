@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "TCC2",
-    "slug": "TCC2",
+    "name": "AlfabetizAI",
+    "slug": "AlfabetizAI",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
     ]
   },
-  "name": "TCC2"
+  "name": "AlfabetizAI"
 }

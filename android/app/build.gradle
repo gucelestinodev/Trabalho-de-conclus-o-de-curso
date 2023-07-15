@@ -113,9 +113,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.tcc2"
+    namespace "com.AlfabetizAI"
     defaultConfig {
-        applicationId "com.tcc2"
+        applicationId "com.AlfabetizAI"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
