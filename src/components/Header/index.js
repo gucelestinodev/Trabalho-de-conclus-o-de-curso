@@ -29,6 +29,8 @@ import Unifal from "../../assets/Unifal.js";
 import IconDelete from "../../assets/IconDelete.js";
 import Logout from "../../assets/Logout.js";
 
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 const HeaderBack = (props) => {
   const { containerBar = true, text, onPress = () => {} } = props;
 
@@ -40,6 +42,15 @@ const HeaderBack = (props) => {
 
   const closeModal = () => {
     setModalVisible(false);
+  };
+
+  const limparDados = async () => {
+    try {
+      await AsyncStorage.clear();
+      alert("Dados foram removidos com sucesso!");
+    } catch (e) {
+      alert("Falha ao remover os dados.");
+    }
   };
 
   return (
@@ -102,12 +113,16 @@ const HeaderBack = (props) => {
               <ButtonBack onPress={closeModal}>
                 <Logout />
               </ButtonBack>
-              <ButtonReset>
+              <ButtonReset onPress={limparDados}>
                 <TextResetModal>Limpar App</TextResetModal>
                 <IconDelete />
               </ButtonReset>
               <View
-                style={{ flex: 1, alignItems: "flex-start", justifyContent: "flex-end" }}
+                style={{
+                  flex: 1,
+                  alignItems: "flex-start",
+                  justifyContent: "flex-end",
+                }}
               >
                 <SubTitleNames>Desenvolvedores:</SubTitleNames>
                 <TextNames>Gustavo C. Lima</TextNames>
